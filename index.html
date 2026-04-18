@@ -3,33 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OZNET | Cloud, Collaboration, and Infrastructure Architecture</title>
-  <meta name="description" content="OZNET provides cloud architecture, Microsoft 365 advisory, virtual desktop solutions, security and governance, and technical leadership services." />
+  <title>OZNET | Enterprise Cloud, Security, and Infrastructure Advisory</title>
+  <meta
+    name="description"
+    content="OZNET is a technology advisory firm focused on Microsoft 365, cloud architecture, security governance, virtual desktop infrastructure, and large-scale enterprise transformation."
+  />
   <style>
     :root {
-      --navy-900: #2d3758;
-      --navy-800: #3f4b73;
-      --navy-700: #566487;
-      --gold-500: #c7963e;
-      --gold-400: #e2c06b;
-      --gold-300: #f2dea1;
+      --navy-950: #1c2540;
+      --navy-900: #24304f;
+      --navy-800: #334367;
+      --navy-700: #516182;
+      --gold-500: #bf8a35;
+      --gold-400: #dfbf74;
+      --gold-300: #f0dfab;
       --white: #ffffff;
-      --ink: #182033;
-      --muted: #63708b;
-      --surface: #f6f8fc;
-      --border: rgba(63, 75, 115, 0.14);
-      --shadow: 0 20px 50px rgba(24, 32, 51, 0.14);
-      --radius: 22px;
-      --max: 1180px;
+      --ink: #182238;
+      --muted: #5f6f8b;
+      --surface: #f4f7fc;
+      --surface-2: #eef2f8;
+      --border: rgba(36, 48, 79, 0.12);
+      --shadow-lg: 0 24px 60px rgba(18, 28, 50, 0.16);
+      --shadow-sm: 0 12px 24px rgba(18, 28, 50, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1220px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: "Segoe UI", Inter, Arial, sans-serif;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
       color: var(--ink);
-      background: linear-gradient(180deg, #eef2f9 0%, #ffffff 28%, #f6f8fc 100%);
+      background:
+        radial-gradient(circle at top left, rgba(223,191,116,0.06), transparent 22%),
+        linear-gradient(180deg, #eef3fa 0%, #ffffff 22%, #f7f9fc 100%);
       line-height: 1.6;
     }
 
@@ -44,18 +54,18 @@
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(45, 55, 88, 0.88);
+      z-index: 100;
+      background: rgba(28, 37, 64, 0.9);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .nav {
+      min-height: 84px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      min-height: 82px;
     }
 
     .brand {
@@ -65,117 +75,114 @@
       min-width: 0;
     }
 
-    .brand img {
-      width: 52px;
-      height: 52px;
-      object-fit: contain;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.06);
-      padding: 0.3rem;
-    }
-
-    .brand-copy {
-      min-width: 0;
+    .brand-badge {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 0.25rem;
     }
 
     .brand-copy strong {
       display: block;
-      font-size: 1.05rem;
       color: var(--white);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
+      font-size: 1.03rem;
     }
 
     .brand-copy span {
       display: block;
-      color: rgba(255,255,255,0.72);
+      color: rgba(255,255,255,0.68);
       font-size: 0.82rem;
+      letter-spacing: 0.04em;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1.25rem;
-      color: rgba(255,255,255,0.92);
+      gap: 1.3rem;
+      color: rgba(255,255,255,0.9);
       font-size: 0.96rem;
     }
 
     .nav-links a:hover { color: var(--gold-300); }
 
     .nav-cta {
-      padding: 0.8rem 1rem;
-      border: 1px solid rgba(226, 192, 107, 0.55);
+      padding: 0.78rem 1rem;
+      border: 1px solid rgba(240,223,171,0.4);
       border-radius: 999px;
-      color: var(--white);
     }
 
     .hero {
       position: relative;
       overflow: hidden;
-      background:
-        radial-gradient(circle at top right, rgba(242, 222, 161, 0.18), transparent 26%),
-        radial-gradient(circle at left center, rgba(199, 150, 62, 0.12), transparent 22%),
-        linear-gradient(135deg, var(--navy-900), var(--navy-700));
       color: var(--white);
+      background:
+        radial-gradient(circle at 90% 15%, rgba(240,223,171,0.12), transparent 18%),
+        radial-gradient(circle at 10% 30%, rgba(191,138,53,0.12), transparent 20%),
+        linear-gradient(135deg, var(--navy-950), var(--navy-900) 45%, #43557b 100%);
     }
 
-    .hero::after {
+    .hero::before {
       content: "";
       position: absolute;
-      inset: auto -10% -30% auto;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 60%);
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(255,255,255,0.02), transparent 30%),
+        linear-gradient(0deg, rgba(255,255,255,0.02), transparent 40%);
       pointer-events: none;
     }
 
     .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 2rem;
-      align-items: center;
-      padding: 5.5rem 0 4.5rem;
       position: relative;
       z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+      gap: 2rem;
+      align-items: center;
+      padding: 6rem 0 5rem;
     }
 
     .eyebrow {
-      display: inline-block;
-      padding: 0.35rem 0.8rem;
-      border: 1px solid rgba(242, 222, 161, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.45rem 0.8rem;
+      border: 1px solid rgba(240,223,171,0.28);
       border-radius: 999px;
       color: var(--gold-300);
-      font-size: 0.84rem;
-      letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 1rem;
+      letter-spacing: 0.08em;
+      font-size: 0.8rem;
+      margin-bottom: 1.1rem;
     }
 
-    h1, h2, h3 { line-height: 1.15; margin: 0 0 1rem; }
-    h1 {
-      font-size: clamp(2.4rem, 4.5vw, 4.6rem);
-      max-width: 11ch;
-    }
-    h2 {
-      font-size: clamp(1.9rem, 3vw, 3rem);
-      color: var(--navy-900);
-    }
-    h3 {
-      font-size: 1.25rem;
-      color: var(--navy-900);
-    }
+    h1, h2, h3, h4 { margin: 0 0 1rem; line-height: 1.12; }
+    h1 { font-size: clamp(2.8rem, 5vw, 5.1rem); max-width: 11ch; }
+    h2 { font-size: clamp(2rem, 3vw, 3.2rem); color: var(--navy-900); }
+    h3 { font-size: 1.28rem; color: var(--navy-900); }
+    h4 { font-size: 1rem; color: var(--navy-900); }
+
+    p { margin: 0; }
 
     .hero p {
-      max-width: 60ch;
-      color: rgba(255,255,255,0.86);
+      max-width: 61ch;
+      color: rgba(255,255,255,0.84);
       font-size: 1.05rem;
     }
+
+    .hero-copy p + p { margin-top: 1rem; }
 
     .hero-actions {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-top: 1.7rem;
+      margin-top: 1.8rem;
     }
 
     .btn {
@@ -185,187 +192,330 @@
       padding: 0.95rem 1.35rem;
       border-radius: 999px;
       font-weight: 600;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
     }
 
     .btn:hover { transform: translateY(-1px); }
+
     .btn-primary {
       background: linear-gradient(135deg, var(--gold-500), var(--gold-400));
-      color: #2c2332;
-      box-shadow: 0 14px 30px rgba(199, 150, 62, 0.32);
+      color: #2d2230;
+      box-shadow: 0 18px 36px rgba(191,138,53,0.25);
     }
 
     .btn-secondary {
-      border: 1px solid rgba(255,255,255,0.24);
-      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.18);
       background: rgba(255,255,255,0.06);
+      color: var(--white);
     }
 
-    .hero-card {
-      background: rgba(255,255,255,0.09);
+    .hero-panel {
+      border-radius: 30px;
+      background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 28px;
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
     }
 
-    .hero-card .logo-wrap {
+    .hero-panel-top {
+      padding: 1.4rem;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .panel-logo {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 1rem;
-      background: rgba(255,255,255,0.04);
+      min-height: 250px;
       border-radius: 22px;
-      margin-bottom: 1.2rem;
+      background: rgba(255,255,255,0.04);
+      padding: 1.5rem;
     }
 
-    .hero-card .logo-wrap img {
-      width: min(300px, 100%);
-      height: auto;
+    .panel-logo img {
+      width: min(320px, 100%);
       object-fit: contain;
     }
 
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.9rem;
-      margin-top: 1.2rem;
+    .hero-panel-bottom {
+      padding: 1.4rem;
     }
 
-    .metric {
-      background: rgba(255,255,255,0.06);
-      border-radius: 18px;
-      padding: 1rem;
-      text-align: center;
-    }
-
-    .metric strong {
-      display: block;
+    .panel-kicker {
       color: var(--gold-300);
-      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      margin-bottom: 0.7rem;
     }
 
-    section { padding: 5rem 0; }
+    .panel-points {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .panel-point {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 0.85rem;
+      align-items: start;
+      padding: 0.9rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .panel-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(223,191,116,0.95), rgba(240,223,171,0.95));
+      color: var(--navy-950);
+      font-weight: 700;
+    }
+
+    .panel-point strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: #fff;
+    }
+
+    .panel-point span {
+      color: rgba(255,255,255,0.74);
+      font-size: 0.95rem;
+    }
+
+    .trust-strip {
+      margin-top: -1.9rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .trust-card {
+      background: rgba(255,255,255,0.94);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      overflow: hidden;
+    }
+
+    .trust-item {
+      padding: 1.35rem 1.4rem;
+      border-right: 1px solid rgba(36,48,79,0.08);
+    }
+
+    .trust-item:last-child { border-right: 0; }
+
+    .trust-item strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: var(--navy-900);
+      font-size: 1rem;
+    }
+
+    .trust-item span {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    section { padding: 5.5rem 0; }
 
     .section-head {
-      max-width: 760px;
+      max-width: 780px;
       margin-bottom: 2.1rem;
     }
 
     .section-head p {
       color: var(--muted);
-      font-size: 1.02rem;
-      margin: 0;
+      font-size: 1.03rem;
     }
 
-    .grid {
-      display: grid;
-      gap: 1.25rem;
-    }
+    .grid { display: grid; gap: 1.25rem; }
 
-    .services {
+    .services-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .card {
       background: rgba(255,255,255,0.9);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
+      border-radius: var(--radius-lg);
+      padding: 1.55rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
     }
 
     .icon {
-      width: 52px;
-      height: 52px;
+      width: 54px;
+      height: 54px;
       border-radius: 16px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      background: linear-gradient(135deg, rgba(223,191,116,0.95), rgba(240,223,171,0.95));
+      color: var(--navy-950);
       font-weight: 700;
       margin-bottom: 1rem;
-      color: var(--navy-900);
-      background: linear-gradient(135deg, rgba(226,192,107,0.85), rgba(242,222,161,0.95));
     }
 
-    .card p, .list li, .timeline p {
+    .card p, .split-card p, .impact-list li, .sector-list li, .callout p {
       color: var(--muted);
-      margin: 0;
     }
 
-    .split {
+    .two-col {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.05fr 0.95fr;
       gap: 1.25rem;
       align-items: stretch;
     }
 
-    .list {
-      display: grid;
-      gap: 0.95rem;
-      padding-left: 1.2rem;
-      margin: 0;
+    .split-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.86));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
+      padding: 2rem;
     }
 
-    .pill-row {
+    .badge-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
-      margin-top: 1.1rem;
+      margin-top: 1.25rem;
     }
 
-    .pill {
-      padding: 0.58rem 0.85rem;
+    .badge {
+      padding: 0.6rem 0.9rem;
       border-radius: 999px;
-      background: #eef2fa;
+      background: var(--surface-2);
       color: var(--navy-800);
-      border: 1px solid rgba(63,75,115,0.12);
+      border: 1px solid rgba(36,48,79,0.1);
       font-size: 0.92rem;
       font-weight: 600;
     }
 
-    .timeline {
+    .impact-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .impact-list {
+      margin: 1rem 0 0;
+      padding-left: 1.1rem;
       display: grid;
-      gap: 1rem;
+      gap: 0.75rem;
     }
 
-    .timeline-item {
-      padding: 1rem 0 0 1rem;
-      border-left: 3px solid rgba(199,150,62,0.45);
-      position: relative;
+    .sector-list {
+      display: grid;
+      gap: 0.85rem;
+      margin: 1rem 0 0;
+      padding-left: 1.1rem;
     }
 
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -8px;
-      top: 1rem;
-      width: 13px;
-      height: 13px;
-      border-radius: 50%;
-      background: var(--gold-500);
+    .dark-section {
+      background:
+        radial-gradient(circle at top left, rgba(223,191,116,0.08), transparent 18%),
+        linear-gradient(135deg, var(--navy-950), var(--navy-900) 55%, #41557a 100%);
+      color: var(--white);
     }
 
-    .process {
+    .dark-section h2,
+    .dark-section h3,
+    .dark-section h4 { color: var(--white); }
+
+    .dark-section .section-head p,
+    .dark-card p,
+    .dark-card li,
+    .dark-card span { color: rgba(255,255,255,0.76); }
+
+    .dark-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      padding: 1.55rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .process-grid {
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
-    .cta {
-      background: linear-gradient(135deg, var(--navy-900), #45527a);
-      color: var(--white);
-      border-radius: 32px;
-      padding: 2rem;
-      box-shadow: var(--shadow);
+    .process-step {
+      position: relative;
+      overflow: hidden;
     }
 
-    .cta h2, .cta h3 { color: var(--white); }
-    .cta p { color: rgba(255,255,255,0.82); }
+    .process-step::after {
+      content: "";
+      position: absolute;
+      inset: auto -18% -18% auto;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(240,223,171,0.12), transparent 60%);
+      pointer-events: none;
+    }
+
+    .step-label {
+      color: var(--gold-300);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      margin-bottom: 0.85rem;
+      display: inline-block;
+    }
+
+    .cta-wrap {
+      padding-top: 0;
+    }
+
+    .cta-panel {
+      background: linear-gradient(135deg, var(--navy-900), #465a83);
+      border-radius: 34px;
+      box-shadow: var(--shadow-lg);
+      color: var(--white);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .cta-copy,
+    .cta-box {
+      padding: 2rem;
+    }
+
+    .cta-copy p { color: rgba(255,255,255,0.8); }
+
+    .cta-box {
+      background: rgba(255,255,255,0.06);
+      border-left: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .cta-box ul {
+      margin: 1rem 0 0;
+      padding-left: 1.1rem;
+      display: grid;
+      gap: 0.8rem;
+      color: rgba(255,255,255,0.82);
+    }
 
     .footer {
-      background: #1f2841;
-      color: rgba(255,255,255,0.8);
+      background: #172038;
+      color: rgba(255,255,255,0.78);
       padding: 2.2rem 0;
       margin-top: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
 
     .footer-grid {
@@ -376,25 +526,50 @@
       flex-wrap: wrap;
     }
 
-    .footer small { color: rgba(255,255,255,0.64); }
+    .footer-brand strong {
+      display: block;
+      color: var(--white);
+      letter-spacing: 0.12em;
+      margin-bottom: 0.2rem;
+    }
 
-    @media (max-width: 980px) {
+    .footer small { color: rgba(255,255,255,0.58); }
+
+    @media (max-width: 1080px) {
+      .services-grid,
+      .impact-grid,
+      .process-grid,
+      .trust-card {
+        grid-template-columns: 1fr 1fr;
+      }
+
       .hero-grid,
-      .split,
-      .services,
-      .process {
+      .two-col,
+      .cta-panel {
         grid-template-columns: 1fr;
       }
-      .metrics { grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    @media (max-width: 860px) {
       .nav-links { display: none; }
+      .trust-strip { margin-top: -1rem; }
     }
 
     @media (max-width: 640px) {
       .container { width: min(var(--max), calc(100% - 1.2rem)); }
-      .hero-grid { padding: 4.2rem 0 3.4rem; }
-      section { padding: 3.8rem 0; }
-      .metrics { grid-template-columns: 1fr; }
+      .hero-grid { padding: 4.5rem 0 4rem; }
+      h1 { max-width: 100%; }
+      section { padding: 4.2rem 0; }
+      .services-grid,
+      .impact-grid,
+      .process-grid,
+      .trust-card {
+        grid-template-columns: 1fr;
+      }
       .brand-copy span { display: none; }
+      .cta-copy,
+      .cta-box,
+      .split-card { padding: 1.4rem; }
     }
   </style>
 </head>
@@ -402,18 +577,18 @@
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="#top" aria-label="OZNET home">
-        <img src="logo.png" alt="OZNET logo" />
-        <div class="brand-copy">
+        <span class="brand-badge"><img src="logo.png" alt="OZNET logo" /></span>
+        <span class="brand-copy">
           <strong>OZNET</strong>
-          <span>Your Vision, Our Expertise</span>
-        </div>
+          <span>Enterprise Technology Advisory</span>
+        </span>
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#services">Services</a>
         <a href="#capabilities">Capabilities</a>
+        <a href="#sectors">Sectors</a>
         <a href="#approach">Approach</a>
-        <a href="#about">About</a>
-        <a class="nav-cta" href="#contact">Get in Touch</a>
+        <a class="nav-cta" href="#contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -421,133 +596,218 @@
   <main id="top">
     <section class="hero">
       <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">Cloud • Security • Infrastructure</span>
-          <h1>Architecture and advisory for modern IT environments.</h1>
+        <div class="hero-copy">
+          <span class="eyebrow">Cloud Strategy • Security Governance • Infrastructure Modernization</span>
+          <h1>Enterprise technology advisory built for complex environments.</h1>
           <p>
-            OZNET helps organizations plan, secure, modernize, and support critical business technology. From Microsoft 365 and identity governance to virtual desktop strategy and technical roadmaps, the focus is on practical solutions that are secure, scalable, and supportable.
+            OZNET is positioned as a professional consulting firm supporting organizations that need clear architecture, disciplined governance, and delivery-ready technology strategies across cloud, collaboration, identity, security, and infrastructure domains.
+          </p>
+          <p>
+            The focus is on helping clients modernize critical platforms, strengthen control frameworks, improve operational readiness, and move large initiatives forward with confidence.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#services">Explore Services</a>
-            <a class="btn btn-secondary" href="#contact">Request a Consultation</a>
+            <a class="btn btn-primary" href="#services">View Services</a>
+            <a class="btn btn-secondary" href="#contact">Discuss an Engagement</a>
           </div>
         </div>
 
-        <aside class="hero-card" aria-label="OZNET summary panel">
-          <div class="logo-wrap">
-            <img src="logo.png" alt="OZNET brand mark" />
+        <aside class="hero-panel" aria-label="OZNET value panel">
+          <div class="hero-panel-top">
+            <div class="panel-logo">
+              <img src="logo.png" alt="OZNET brand mark" />
+            </div>
           </div>
-          <h3>Built around deep enterprise experience</h3>
-          <p>
-            A sample homepage designed to present OZNET as a premium consulting brand focused on cloud collaboration, governance, infrastructure modernization, and operational excellence.
-          </p>
-          <div class="metrics">
-            <div class="metric">
-              <strong>25+</strong>
-              <span>Years Experience</span>
-            </div>
-            <div class="metric">
-              <strong>M365</strong>
-              <span>Cloud Expertise</span>
-            </div>
-            <div class="metric">
-              <strong>VDI</strong>
-              <span>Infrastructure Focus</span>
+          <div class="hero-panel-bottom">
+            <div class="panel-kicker">Firm Positioning</div>
+            <h3>Structured for serious engagements, not small-project optics.</h3>
+            <div class="panel-points">
+              <div class="panel-point">
+                <div class="panel-number">01</div>
+                <div>
+                  <strong>Enterprise-first messaging</strong>
+                  <span>Designed to present OZNET as a credible advisory firm for large, security-conscious organizations.</span>
+                </div>
+              </div>
+              <div class="panel-point">
+                <div class="panel-number">02</div>
+                <div>
+                  <strong>Boardroom-ready service language</strong>
+                  <span>Focused on strategy, governance, integration, modernization, and delivery support.</span>
+                </div>
+              </div>
+              <div class="panel-point">
+                <div class="panel-number">03</div>
+                <div>
+                  <strong>Built around your real depth</strong>
+                  <span>Reflects your background in Microsoft 365, VDI, security posture, roadmaps, operations, and executive advisory.</span>
+                </div>
+              </div>
             </div>
           </div>
         </aside>
       </div>
     </section>
 
+    <div class="trust-strip">
+      <div class="container">
+        <div class="trust-card">
+          <div class="trust-item">
+            <strong>Architecture and transformation</strong>
+            <span>Enterprise planning for cloud, collaboration, identity, and infrastructure initiatives.</span>
+          </div>
+          <div class="trust-item">
+            <strong>Governance and control</strong>
+            <span>Operating models, access frameworks, standards, and policy-aligned implementation guidance.</span>
+          </div>
+          <div class="trust-item">
+            <strong>Operational maturity</strong>
+            <span>Escalation support, documentation, handover readiness, and service improvement.</span>
+          </div>
+          <div class="trust-item">
+            <strong>Executive-facing delivery</strong>
+            <span>Roadmaps, options analysis, stakeholder briefings, and decision support for complex programs.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <section id="services">
       <div class="container">
         <div class="section-head">
-          <h2>Core services for OZNET</h2>
+          <h2>Advisory services for high-value technology programs</h2>
           <p>
-            These services were shaped from your CV and kept generic enough for commercial consulting use: cloud architecture, Microsoft 365 advisory, virtual desktop and endpoint strategy, governance and security, and technical documentation and leadership.
+            This version moves away from a personal résumé feel and instead presents OZNET as a firm that can support structured, large-scale mandates with enterprise-grade advisory, planning, and implementation support.
           </p>
         </div>
 
-        <div class="grid services">
-          <article class="card">
+        <div class="grid services-grid">
+          <article class="card service-card">
             <div class="icon">01</div>
-            <h3>Microsoft 365 Architecture</h3>
-            <p>Design and improvement of Microsoft 365 environments including Exchange Online, SharePoint Online, Teams, OneDrive, Intune, Entra ID, and Power Platform.</p>
+            <h3>Enterprise Cloud and Collaboration Architecture</h3>
+            <p>Architecture, design guidance, integration planning, and modernization strategy for Microsoft 365 and related cloud service ecosystems.</p>
           </article>
-          <article class="card">
+
+          <article class="card service-card">
             <div class="icon">02</div>
-            <h3>Security, Governance, and Compliance</h3>
-            <p>Role design, privileged access workflows, data protection, compliance alignment, configuration standards, and tenant governance for secure collaboration.</p>
+            <h3>Identity, Access, and Security Governance</h3>
+            <p>Role models, privileged access workflows, control design, access governance, and security-aligned operating standards for regulated environments.</p>
           </article>
-          <article class="card">
+
+          <article class="card service-card">
             <div class="icon">03</div>
-            <h3>Virtual Desktop and Infrastructure</h3>
-            <p>Architecture, modernization, troubleshooting, and roadmap planning for VDI, endpoint ecosystems, and supporting platform components.</p>
+            <h3>Infrastructure and Virtual Desktop Strategy</h3>
+            <p>Assessment, roadmap development, modernization planning, and technical direction for VDI, endpoint ecosystems, and supporting infrastructure.</p>
           </article>
-          <article class="card">
+
+          <article class="card service-card">
             <div class="icon">04</div>
-            <h3>Technical Advisory and Roadmaps</h3>
-            <p>Current-state assessments, future-state planning, options analysis, and executive-ready recommendations to support better technology decisions.</p>
+            <h3>Technology Roadmaps and Options Analysis</h3>
+            <p>Current-state reviews, future-state design, investment framing, and decision support to help leadership move initiatives forward with clarity.</p>
           </article>
-          <article class="card">
+
+          <article class="card service-card">
             <div class="icon">05</div>
-            <h3>Operational Support and Improvement</h3>
-            <p>Escalation support, service optimization, process refinement, standards review, and practical guidance for teams responsible for daily operations.</p>
+            <h3>Operational Readiness and Service Improvement</h3>
+            <p>Support model refinement, process optimization, escalation guidance, and transition planning to improve reliability and long-term supportability.</p>
           </article>
-          <article class="card">
+
+          <article class="card service-card">
             <div class="icon">06</div>
-            <h3>Documentation and Knowledge Transfer</h3>
-            <p>Creation of clear implementation documents, procedures, architecture artefacts, runbooks, and training materials that support continuity and handover.</p>
+            <h3>Architecture Documentation and Stakeholder Enablement</h3>
+            <p>Creation of structured deliverables including architecture artefacts, procedures, implementation guidance, standards, and executive-ready material.</p>
           </article>
         </div>
       </div>
     </section>
 
     <section id="capabilities">
-      <div class="container split">
-        <div class="card">
-          <div class="section-head" style="margin-bottom:1.2rem;">
-            <h2 style="font-size:2rem;">Highlighted capabilities</h2>
-            <p>Presented as client-facing strengths rather than a resume dump.</p>
+      <div class="container two-col">
+        <div class="split-card">
+          <div class="section-head" style="margin-bottom:1.1rem;">
+            <h2 style="font-size:2rem;">Positioning anchored in enterprise experience</h2>
+            <p>The site language is shaped by the strengths evident in your CV: architecture leadership, Microsoft 365, governance, security alignment, VDI engineering, documentation, operational support, and advisory to senior stakeholders.</p>
           </div>
-          <ul class="list">
-            <li>Cloud collaboration platform strategy and implementation</li>
-            <li>Identity, access, permissions, and privileged role governance</li>
-            <li>Endpoint management and device compliance planning</li>
-            <li>VDI and enterprise infrastructure architecture</li>
-            <li>Security posture improvement and configuration baselines</li>
-            <li>Roadmaps, standards, operating procedures, and executive briefings</li>
-          </ul>
-          <div class="pill-row">
-            <span class="pill">Microsoft 365</span>
-            <span class="pill">Entra ID</span>
-            <span class="pill">Intune</span>
-            <span class="pill">SharePoint</span>
-            <span class="pill">Teams</span>
-            <span class="pill">Exchange Online</span>
-            <span class="pill">VDI</span>
-            <span class="pill">Governance</span>
+          <div class="badge-row">
+            <span class="badge">Microsoft 365</span>
+            <span class="badge">Entra ID</span>
+            <span class="badge">SharePoint Online</span>
+            <span class="badge">Teams</span>
+            <span class="badge">Exchange Online</span>
+            <span class="badge">Intune</span>
+            <span class="badge">VDI</span>
+            <span class="badge">Governance</span>
+            <span class="badge">Security Posture</span>
+            <span class="badge">Roadmaps</span>
+            <span class="badge">Operational Support</span>
+            <span class="badge">Technical Documentation</span>
           </div>
         </div>
 
-        <div class="card" id="about">
-          <div class="section-head" style="margin-bottom:1.2rem;">
-            <h2 style="font-size:2rem;">Why this positioning works</h2>
-            <p>This homepage avoids overly narrow government language while preserving the substance of your background.</p>
+        <div class="split-card">
+          <div class="section-head" style="margin-bottom:1.1rem;">
+            <h2 style="font-size:2rem;">What this version is doing differently</h2>
+            <p>It deliberately avoids a boutique or individual-contractor impression and instead uses the language, structure, and visual tone of a modern consulting firm.</p>
           </div>
-          <div class="timeline">
-            <div class="timeline-item">
-              <h3>Enterprise credibility</h3>
-              <p>Positions OZNET as experienced in complex, high-stakes environments without making the site feel like a CV.</p>
-            </div>
-            <div class="timeline-item">
-              <h3>Broad commercial appeal</h3>
-              <p>Uses service language that fits public sector, private sector, and small-to-mid enterprise consulting opportunities.</p>
-            </div>
-            <div class="timeline-item">
-              <h3>Premium visual direction</h3>
-              <p>Builds around your existing navy-and-gold logo so the brand feels consistent, professional, and memorable.</p>
-            </div>
+          <ul class="impact-list">
+            <li>Removes any dependency on certifications as a trust signal.</li>
+            <li>Emphasizes enterprise programs, governance, transformation, and operating maturity.</li>
+            <li>Keeps the messaging broad enough for both public and private sector opportunities.</li>
+            <li>Uses clean, restrained visuals to support a premium professional impression.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Potential client outcomes</h2>
+          <p>These are the kinds of value statements that help OZNET read like a firm capable of supporting serious contracts rather than one-off technical tasks.</p>
+        </div>
+        <div class="grid impact-grid">
+          <article class="card">
+            <h3>Reduced delivery risk</h3>
+            <p>Clear governance, better design decisions, and stronger implementation planning for large initiatives.</p>
+          </article>
+          <article class="card">
+            <h3>Stronger control environments</h3>
+            <p>Improved alignment between technology configuration, operational processes, and security requirements.</p>
+          </article>
+          <article class="card">
+            <h3>Better executive decision support</h3>
+            <p>Architecture options, concise recommendations, and structured roadmaps for leadership teams.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sectors" class="dark-section">
+      <div class="container two-col">
+        <div>
+          <div class="section-head">
+            <h2>Sectors and environments OZNET can credibly target</h2>
+            <p>Presented generically for business development while still aligning with the nature of your background.</p>
+          </div>
+          <div class="dark-card">
+            <ul class="sector-list">
+              <li>Government and public sector organizations</li>
+              <li>Defence-adjacent and security-conscious environments</li>
+              <li>Large enterprise collaboration and workplace transformation programs</li>
+              <li>Organizations modernizing identity, governance, and endpoint services</li>
+              <li>Clients requiring structured documentation, controls, and operational handover</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-head">
+            <h2>Engagement profile</h2>
+            <p>The wording below supports a more mature consulting profile and can later be expanded into full service pages.</p>
+          </div>
+          <div class="dark-card callout">
+            <h3>OZNET supports organizations that need:</h3>
+            <p style="margin-bottom:1rem;">Strategic guidance before major platform decisions, structured architecture during delivery, and disciplined operational thinking after implementation.</p>
+            <p>The result is a website presence that suggests capability in assessment, planning, governance, technical direction, and enterprise support readiness.</p>
           </div>
         </div>
       </div>
@@ -556,53 +816,51 @@
     <section id="approach">
       <div class="container">
         <div class="section-head">
-          <h2>Engagement approach</h2>
-          <p>A simple process section that works well for a consulting homepage and helps convert visitors.</p>
+          <h2>Engagement model</h2>
+          <p>A consulting process section helps the homepage feel more like an established firm website and less like a profile page.</p>
         </div>
-        <div class="grid process">
-          <article class="card">
-            <div class="icon">A</div>
+        <div class="grid process-grid">
+          <article class="dark-card process-step">
+            <span class="step-label">Step 01</span>
             <h3>Assess</h3>
-            <p>Review the current environment, priorities, risk areas, and operational constraints.</p>
+            <p>Review current state, constraints, risks, stakeholder expectations, and operating realities.</p>
           </article>
-          <article class="card">
-            <div class="icon">B</div>
-            <h3>Design</h3>
-            <p>Create a practical architecture, governance model, and implementation path.</p>
+          <article class="dark-card process-step">
+            <span class="step-label">Step 02</span>
+            <h3>Architect</h3>
+            <p>Define the target model, supporting controls, integration approach, and implementation path.</p>
           </article>
-          <article class="card">
-            <div class="icon">C</div>
-            <h3>Implement</h3>
-            <p>Support delivery, validate changes, and produce the documentation needed for supportability.</p>
+          <article class="dark-card process-step">
+            <span class="step-label">Step 03</span>
+            <h3>Guide Delivery</h3>
+            <p>Support execution with technical direction, issue resolution, and decision-ready analysis.</p>
           </article>
-          <article class="card">
-            <div class="icon">D</div>
-            <h3>Enable</h3>
-            <p>Transfer knowledge to operational teams and improve long-term sustainability.</p>
+          <article class="dark-card process-step">
+            <span class="step-label">Step 04</span>
+            <h3>Stabilize</h3>
+            <p>Strengthen supportability through documentation, handover material, and operating refinement.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="cta-wrap">
       <div class="container">
-        <div class="cta">
-          <div class="split" style="grid-template-columns: 1.1fr 0.9fr; align-items:center;">
-            <div>
-              <h2>Need a sharper OZNET version next?</h2>
-              <p>
-                This sample is intentionally static and GitHub Pages friendly. It can be expanded next into a full multi-section production site with real contact details, case studies, testimonials, service pages, and GitHub deployment structure.
-              </p>
-            </div>
-            <div class="card" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.14); color: white; box-shadow: none;">
-              <h3 style="margin-bottom:0.6rem;">Suggested next additions</h3>
-              <ul class="list" style="color: rgba(255,255,255,0.82);">
-                <li>Real contact form or mailto action</li>
-                <li>About page with biography and certifications</li>
-                <li>Service detail pages</li>
-                <li>Case studies and client outcomes</li>
-              </ul>
-            </div>
+        <div class="cta-panel">
+          <div class="cta-copy">
+            <h2>Next recommended move</h2>
+            <p>
+              This is now positioned much closer to a professional firm homepage. The next production-grade step would be turning this into a full website with a refined About page, dedicated service pages, sector-focused messaging, and a real contact pathway.
+            </p>
+          </div>
+          <div class="cta-box">
+            <h3>Recommended phase 3 additions</h3>
+            <ul>
+              <li>Dedicated About page written as a firm profile, not a CV summary</li>
+              <li>Separate pages for Cloud, Security, Infrastructure, and Advisory services</li>
+              <li>Sector-focused copy for government, enterprise, and regulated clients</li>
+              <li>Contact form, proposal inquiry section, and stronger calls to action</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -611,11 +869,11 @@
 
   <footer class="footer">
     <div class="container footer-grid">
-      <div>
-        <strong style="display:block; color:white; letter-spacing:0.08em;">OZNET</strong>
+      <div class="footer-brand">
+        <strong>OZNET</strong>
         <small>Your Vision, Our Expertise</small>
       </div>
-      <small>Sample static homepage for GitHub Pages hosting.</small>
+      <small>Sample enterprise-style homepage for free GitHub Pages hosting.</small>
     </div>
   </footer>
 </body>
