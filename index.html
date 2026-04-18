@@ -3,173 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OZNET | Enterprise Technology Consulting</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>OZNET | Enterprise Technology Architecture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
-            --primary: #0f172a; 
-            --accent: #c5a059;  
-            --accent-hover: #b08d46;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --bg-light: #f8fafc;
+            --obsidian: #0a0a0b;
+            --gold: #c5a059;
+            --gold-muted: rgba(197, 160, 89, 0.1);
+            --slate-gray: #1e1e20;
+            --text-light: #f4f4f5;
+            --text-dim: #a1a1aa;
             --white: #ffffff;
-            --nav-height: 80px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--text-main);
-            line-height: 1.7;
-            background-color: var(--white);
+            background-color: var(--obsidian);
+            color: var(--text-light);
+            line-height: 1.6;
+            scroll-behavior: smooth;
         }
+
+        h1, h2, h3 { font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
 
         /* --- Navigation --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 10%;
-            height: var(--nav-height);
-            background: var(--white);
+            padding: 1.5rem 8%;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+            background: rgba(10, 10, 11, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .nav-brand {
+        .nav-brand { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo-nav { height: 45px; width: auto; filter: drop-shadow(0 0 5px rgba(197, 160, 89, 0.3)); }
+        .brand-text { color: var(--gold); font-weight: 700; font-size: 1.3rem; letter-spacing: 2px; }
+
+        .nav-links { display: flex; gap: 3rem; align-items: center; }
+        .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+
+        .btn-consult {
+            border: 1px solid var(--gold);
+            padding: 0.6rem 1.5rem;
+            color: var(--gold) !important;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        .btn-consult:hover { background: var(--gold); color: var(--obsidian) !important; }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
             display: flex;
             align-items: center;
-            text-decoration: none;
-            gap: 12px;
+            padding: 0 8%;
+            background: radial-gradient(circle at 80% 20%, #1e1e20 0%, #0a0a0b 100%);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.1);
         }
 
-        .logo-img {
-            height: 50px; /* Adjusted for the "OZ only" logo */
-            width: auto;
+        .hero-content { max-width: 900px; }
+        .hero-pre { color: var(--gold); font-weight: 600; font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1.5rem; display: block; }
+        .hero h1 { font-size: 4.5rem; line-height: 1; margin-bottom: 2rem; background: linear-gradient(to right, #fff, #a1a1aa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.3rem; color: var(--text-dim); margin-bottom: 3rem; max-width: 700px; }
+
+        /* --- Stats/Social Proof --- */
+        .trust-strip {
+            display: flex;
+            justify-content: space-between;
+            padding: 4rem 8%;
+            background: var(--slate-gray);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
+        .stat-card h4 { font-size: 2.5rem; color: var(--gold); margin-bottom: 0.5rem; }
+        .stat-card p { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); }
 
-        .brand-name {
-            font-weight: 700;
-            font-size: 1.4rem;
-            letter-spacing: 1px;
-            color: var(--primary);
-        }
+        /* --- Services (CV Rebrand) --- */
+        .services { padding: 8rem 8%; }
+        .section-tag { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 1rem; display: block; text-align: center; }
+        .section-title { font-size: 3rem; text-align: center; margin-bottom: 5rem; }
 
-        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-        .nav-links a:hover { color: var(--accent); }
-
-        .cta-nav {
-            background: var(--accent);
-            color: white !important;
-            padding: 0.6rem 1.4rem;
-            border-radius: 4px;
-        }
-
-        /* --- Hero --- */
-        .hero {
-            padding: calc(var(--nav-height) + 8rem) 10% 8rem 10%;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: var(--white);
-            text-align: center;
-        }
-
-        .hero-content { max-width: 850px; margin: 0 auto; }
-        .hero h1 { font-size: 3.8rem; line-height: 1.1; margin-bottom: 2rem; }
-        .hero p { font-size: 1.25rem; color: #cbd5e1; margin-bottom: 3rem; }
-
-        .btn {
-            padding: 1.1rem 2.5rem;
-            border-radius: 4px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.3s;
-        }
-        .btn-primary { background: var(--accent); color: white; }
-        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); }
-
-        /* --- Process Section --- */
-        .section { padding: 8rem 10%; }
-        .bg-grey { background: var(--bg-light); }
-        .center-head { text-align: center; margin-bottom: 5rem; }
-        .center-head h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary); }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-        .step { position: relative; text-align: center; }
-        .step-num {
-            font-size: 4rem;
-            font-weight: 800;
-            color: rgba(197, 160, 89, 0.1);
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
-        }
-        .step-content { position: relative; z-index: 2; }
-        .step h4 { margin-bottom: 1rem; font-size: 1.2rem; }
-
-        /* --- Services --- */
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.05);
         }
-        .service-card {
-            padding: 3.5rem 2.5rem;
-            background: white;
-            border: 1px solid #e2e8f0;
-            transition: 0.3s;
-        }
-        .service-card:hover { border-color: var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .service-card i { color: var(--accent); margin-bottom: 2rem; }
-        .service-card h3 { margin-bottom: 1.2rem; }
 
-        /* --- Testimonial Section --- */
-        .testimonial {
-            background: var(--primary);
-            color: white;
-            padding: 6rem 10%;
+        .service-box {
+            padding: 4rem;
+            background: var(--obsidian);
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-box:hover { background: #121214; }
+        .service-box i { color: var(--gold); margin-bottom: 2rem; }
+        .service-box h3 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+        .service-box p { color: var(--text-dim); font-size: 1.05rem; }
+
+        /* --- Credentials Strip --- */
+        .credentials {
+            padding: 5rem 8%;
+            background: linear-gradient(to right, #0a0a0b, #1e1e20);
             text-align: center;
         }
-        .testimonial blockquote { font-size: 1.8rem; font-style: italic; max-width: 900px; margin: 0 auto 2rem auto; }
-        .testimonial cite { color: var(--accent); font-weight: 600; font-style: normal; }
+        .cert-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 3rem; opacity: 0.7; }
+        .cert-item { border: 1px solid rgba(255,255,255,0.1); padding: 0.5rem 1.5rem; font-size: 0.8rem; color: var(--text-dim); }
 
         /* --- Footer --- */
-        footer { padding: 6rem 10% 2rem 10%; background: #020617; color: #94a3b8; }
-        .footer-main { display: flex; justify-content: space-between; margin-bottom: 4rem; flex-wrap: wrap; gap: 3rem; }
-        .footer-brand { max-width: 400px; }
-        .footer-brand img { height: 60px; margin-bottom: 1.5rem; } /* Using full logo here */
-        .footer-links { display: flex; gap: 4rem; }
-        .footer-col h5 { color: white; margin-bottom: 1.5rem; }
+        footer { padding: 8rem 8% 4rem 8%; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 5rem; }
+        .footer-logo-img { height: 100px; margin-bottom: 2rem; }
+        .footer-col h5 { color: var(--white); margin-bottom: 1.5rem; font-size: 1rem; letter-spacing: 1px; }
         .footer-col ul { list-style: none; }
-        .footer-col li { margin-bottom: 0.8rem; }
-        .footer-col a { color: inherit; text-decoration: none; transition: 0.3s; }
-        .footer-col a:hover { color: var(--accent); }
+        .footer-col li { margin-bottom: 1rem; }
+        .footer-col a { color: var(--text-dim); text-decoration: none; transition: 0.3s; font-size: 0.9rem; }
+        .footer-col a:hover { color: var(--gold); }
 
-        @media (max-width: 968px) {
-            .hero h1 { font-size: 2.8rem; }
-            .process-grid { grid-template-columns: 1fr 1fr; }
-            .nav-links { display: none; } /* Mobile menu would go here */
+        .copyright { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; color: var(--text-dim); font-size: 0.8rem; }
+
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 3rem; }
+            .service-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -177,119 +144,110 @@
 
     <nav>
         <a href="#" class="nav-brand">
-            <img src="OZ only logo.png" alt="OZNET Logo" class="logo-img">
-            <span class="brand-name">OZNET</span>
+            <img src="OZ only logo.png" alt="OZNET" class="logo-nav">
+            <span class="brand-text">OZNET</span>
         </a>
         <div class="nav-links">
-            <a href="#services">Services</a>
-            <a href="#process">Our Approach</a>
-            <a href="#sectors">Sectors</a>
-            <a href="#contact" class="cta-nav">Book a Consultation</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#about">Experience</a>
+            <a href="#contact" class="btn-consult">Request Consultation</a>
         </div>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Expert Guidance for Complex Digital Landscapes.</h1>
-            <p>We empower regulated enterprises to modernize with confidence through precision-engineered Cloud, AI, and Security strategies.</p>
-            <a href="#contact" class="btn btn-primary">Start a Transformation <i data-lucide="chevron-right"></i></a>
+            <span class="hero-pre">Global Technology Architecture</span>
+            <h1>High-Assurance Architecture for Regulated Enterprise.</h1>
+            <p>25+ years of engineering excellence in Defence, Health, and Global Infrastructure. We architect the secure digital foundations that empower world-class organizations.</p>
+            <a href="#contact" class="btn-consult" style="padding: 1.2rem 3rem; font-size: 1rem; font-weight: 700;">Secure Your Infrastructure</a>
         </div>
     </section>
 
-    <section class="section" id="process">
-        <div class="center-head">
-            <h2>The OZNET Methodology</h2>
-            <p>A proven framework for delivering high-impact technical results.</p>
+    <div class="trust-strip">
+        <div class="stat-card">
+            <h4>25+</h4>
+            <p>Years Experience</p>
         </div>
-        <div class="process-grid">
-            <div class="step">
-                <div class="step-num">01</div>
-                <div class="step-content">
-                    <h4>Discovery</h4>
-                    <p>Comprehensive audit of existing architecture and technical debt.</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-num">02</div>
-                <div class="step-content">
-                    <h4>Strategy</h4>
-                    <p>Developing a roadmap aligned with enterprise business goals.</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-num">03</div>
-                <div class="step-content">
-                    <h4>Execution</h4>
-                    <p>Agile deployment of Cloud and Security frameworks.</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-num">04</div>
-                <div class="step-content">
-                    <h4>Optimization</h4>
-                    <p>Continuous refinement for performance and governance.</p>
-                </div>
-            </div>
+        <div class="stat-card">
+            <h4>Secret</h4>
+            <p>Security Clearance</p>
         </div>
-    </section>
+        <div class="stat-card">
+            <h4>Expert</h4>
+            <p>M365 & Azure Architecture</p>
+        </div>
+        <div class="stat-card">
+            <h4>Level III</h4>
+            <p>Senior Technical Architect</p>
+        </div>
+    </div>
 
-    <section class="section bg-grey" id="services">
-        <div class="center-head">
-            <h2>Specialized Capabilities</h2>
-        </div>
+    <section class="services" id="expertise">
+        <span class="section-tag">Marketable Expertise</span>
+        <h2 class="section-title">Strategic Service Pillars</h2>
+        
         <div class="service-grid">
-            <div class="service-card">
-                <i data-lucide="shield-check" size="40"></i>
-                <h3>Information Security</h3>
-                <p>Architecting Zero-Trust environments and rigorous compliance frameworks for sensitive data protection.</p>
+            <div class="service-box">
+                <i data-lucide="cloud-cog" size="48"></i>
+                <h3>Enterprise Cloud Ecosystems</h3>
+                <p>Specialized in the end-to-end design and integration of M365 ecosystems, including Entra ID, Intune, and Power Platform, tailored for complex departmental governance.</p>
             </div>
-            <div class="service-card">
-                <i data-lucide="cloud-lightning" size="40"></i>
-                <h3>M365 & Azure</h3>
-                <p>Advanced virtualization and virtualization strategies designed for scale and high availability.</p>
+            <div class="service-box">
+                <i data-lucide="shield-alert" size="48"></i>
+                <h3>Security & Compliance Architecture</h3>
+                <p>Architecting environments that meet the most rigorous standards, including ITSG-33, Protected B Medium Medium (PBMM), and Zero-Trust frameworks.</p>
             </div>
-            <div class="service-card">
-                <i data-lucide="cpu" size="40"></i>
-                <h3>AI Readiness</h3>
-                <p>Preparing your data infrastructure for the integration of private, secure Large Language Models.</p>
+            <div class="service-box">
+                <i data-lucide="monitor-dot" size="48"></i>
+                <h3>Virtual Desktop Infrastructure (VDI)</h3>
+                <p>Deploying high-performance VHD solutions using VMware Horizon, NVIDIA Grid, and App Volumes to support massive, remote workforces in secure environments.</p>
+            </div>
+            <div class="service-box">
+                <i data-lucide="users-2" size="48"></i>
+                <h3>Executive Advisory & Roadmaps</h3>
+                <p>Providing 4th-line support and strategic guidance to senior executives on roadmaps, risk mitigation, and the future of emerging Microsoft features.</p>
             </div>
         </div>
     </section>
 
-    <section class="testimonial">
-        <blockquote>
-            "OZNET provided the technical clarity we needed to navigate a massive migration without a second of downtime. Their expertise is unmatched."
-        </blockquote>
-        <cite>— CTO, Global Financial Services</cite>
+    <section class="credentials">
+        <span class="section-tag">Validated Excellence</span>
+        <h2 style="margin-bottom: 1rem;">Professional Certifications</h2>
+        <div class="cert-list">
+            <span class="cert-item">AZ-900 Azure Fundamentals</span>
+            <span class="cert-item">MS-900 Microsoft 365</span>
+            <span class="cert-item">MS-100/101 Identity & Mobility</span>
+            <span class="cert-item">MS-500 Security Admin</span>
+            <span class="cert-item">vSphere Install & Manage</span>
+            <span class="cert-item">ITIL v3 Foundations</span>
+        </div>
     </section>
 
-    <footer>
-        <div class="footer-main">
-            <div class="footer-brand">
-                <img src="logo.png" alt="OZNET Full Logo">
-                <p>Global technology consulting specializing in architecture, security, and modernization for complex enterprise environments.</p>
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <img src="logo.png" alt="OZNET Full Logo" class="footer-logo-img">
+                <p>Architecting digital resilience for the world's most critical organizations. Based in Ottawa, Ontario. Serving clients globally.</p>
             </div>
-            <div class="footer-links">
-                <div class="footer-col">
-                    <h5>Focus Areas</h5>
-                    <ul>
-                        <li><a href="#">Cloud Security</a></li>
-                        <li><a href="#">Azure Migration</a></li>
-                        <li><a href="#">AI Governance</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h5>Company</h5>
-                    <ul>
-                        <li><a href="#">Methodology</a></li>
-                        <li><a href="#">Expertise</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
+            <div class="footer-col">
+                <h5>Practice Areas</h5>
+                <ul>
+                    <li><a href="#">Defence & Security</a></li>
+                    <li><a href="#">Public Health IT</a></li>
+                    <li><a href="#">Enterprise Cloud</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Connect</h5>
+                <ul>
+                    <li><a href="#">LinkedIn Profile</a></li>
+                    <li><a href="#">Email Architecture Team</a></li>
+                    <li><a href="#">Request Case Studies</a></li>
+                </ul>
             </div>
         </div>
-        <div style="text-align: center; border-top: 1px solid #1e293b; padding-top: 2rem;">
-            <p>&copy; 2026 OZNET Consulting. Ottawa, Canada.</p>
+        <div class="copyright">
+            &copy; 2026 OZNET Consulting. All Rights Reserved. Secret Level II Cleared Professional.
         </div>
     </footer>
 
